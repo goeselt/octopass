@@ -1,0 +1,84 @@
+{
+  "name": "octopass",
+  "displayName": "Octopass",
+  "description": "Checks GitHub CLI authentication for the current repository and configured hosts.",
+  "version": "0.1.0",
+  "publisher": "goeselt",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/goeselt/octopass.git"
+  },
+  "engines": {
+    "vscode": "^1.120.0"
+  },
+  "categories": [
+    "SCM Providers",
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "octopass.refresh",
+        "title": "Octopass: Refresh Authentication Status"
+      },
+      {
+        "command": "octopass.login",
+        "title": "Octopass: Login to Current Host"
+      },
+      {
+        "command": "octopass.showStatus",
+        "title": "Octopass: Show Authentication Status"
+      }
+    ],
+    "configuration": {
+      "title": "Octopass",
+      "properties": {
+        "octopass.hosts": {
+          "type": "array",
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "description": "Additional GitHub hosts to check with `gh auth status --hostname`. The current repository host is checked automatically."
+        },
+        "octopass.checkIntervalMinutes": {
+          "type": "number",
+          "default": 15,
+          "minimum": 1,
+          "description": "Minimum time before Octopass refreshes a host authentication check again."
+        },
+        "octopass.checkTokenExpiration": {
+          "type": "boolean",
+          "default": true,
+          "description": "Check token expiration metadata with a cached `gh api --include --silent /user` request."
+        },
+        "octopass.showStatusBar": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show a status bar item for the current repository host."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "node esbuild.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test src/gh.test.ts src/git.test.ts",
+    "verify": "npm run typecheck && npm run build",
+    "vscode-engine": "VSCODE_API=\"$(npm view @types/vscode version)\" && npm pkg set \"engines.vscode=^${VSCODE_API}\"",
+    "update": "npm run vscode-engine && npm install",
+    "package": "npx --yes --package @vscode/vsce vsce package --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/node": "*",
+    "@types/vscode": "*",
+    "esbuild": "*",
+    "tsx": "*",
+    "typescript": "*"
+  }
+}
