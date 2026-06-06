@@ -36,6 +36,12 @@ docker pull ghcr.io/goeselt/pedant:latest
 docker run --rm -v "$(pwd):/work" ghcr.io/goeselt/pedant:latest
 ```
 
+Update dependencies:
+
+```bash
+npm run update
+```
+
 Tests:
 
 ```bash
