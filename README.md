@@ -29,7 +29,7 @@ opens a terminal with the exact `gh auth login` command pre-filled.
 | Command                                   | Description                                      |
 | ----------------------------------------- | ------------------------------------------------ |
 | `Octopass: Refresh Authentication Status` | Re-check all configured and detected hosts.      |
-| `Octopass: Show Authentication Status`    | Open the output panel with current auth state.   |
+| `Octopass: Show Authentication Status`    | Show current auth state and related actions.     |
 | `Octopass: Login to Current Host`         | Open a terminal with `gh auth login` pre-filled. |
 
 ## Configuration

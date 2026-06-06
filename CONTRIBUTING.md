@@ -24,7 +24,7 @@ npm ci
 npm run build
 ```
 
-Use the **Run Extension (isolated)** launch configuration (`F5`) to open an Extension Development Host with Octopass
+Use the **Run Extension** launch configuration (`F5`) to open an Extension Development Host with Octopass
 loaded and all other extensions disabled.
 
 ## Local Verification
