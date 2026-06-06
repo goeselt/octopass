@@ -69,7 +69,7 @@
     "build": "node esbuild.mjs",
     "typecheck": "tsc --noEmit",
     "test": "node --import tsx --test src/gh.test.ts src/git.test.ts",
-    "verify": "npm run typecheck && npm run build",
+    "verify": "npm run typecheck && npm test && npm run build",
     "vscode-engine": "VSCODE_API=\"$(npm view @types/vscode version)\" && npm pkg set \"engines.vscode=^${VSCODE_API}\"",
     "update": "npm run vscode-engine && npm install",
     "package": "npx --yes --package @vscode/vsce vsce package --no-dependencies"
