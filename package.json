@@ -2,7 +2,7 @@
   "name": "octopass",
   "displayName": "Octopass",
   "description": "Checks GitHub CLI authentication for the current repository and configured hosts.",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "publisher": "goeselt",
   "license": "MIT",
   "repository": {
