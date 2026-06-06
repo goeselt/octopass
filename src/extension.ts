@@ -57,6 +57,8 @@ function scheduleRefresh(force: boolean) {
 
 async function refresh(force: boolean) {
   const config = vscode.workspace.getConfiguration('octopass')
+  if (force) clearGitCache()
+
   // The status is computed even when the status bar is hidden so the
   // Show Status command and the cache stay current; do not return early here.
   if (!config.get<boolean>('showStatusBar', true)) {

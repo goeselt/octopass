@@ -1,0 +1,8 @@
+.github/
+.vscode/
+esbuild.mjs
+node_modules/
+octopass-*.vsix
+package-lock.json
+src/
+tsconfig.json

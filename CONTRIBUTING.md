@@ -24,8 +24,8 @@ npm ci
 npm run build
 ```
 
-Use the **Run Extension (isolated)** launch configuration (`F5`) to open an Extension Development Host with Octopass
-loaded and all other extensions disabled.
+Use the **Run Extension** launch configuration (`F5`) to open an Extension Development Host with Octopass loaded and all
+other extensions disabled.
 
 ## Local Verification
 
@@ -34,6 +34,12 @@ Lint:
 ```bash
 docker pull ghcr.io/goeselt/pedant:latest
 docker run --rm -v "$(pwd):/work" ghcr.io/goeselt/pedant:latest
+```
+
+Update dependencies:
+
+```bash
+npm run update
 ```
 
 Tests:

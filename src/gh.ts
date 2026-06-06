@@ -29,9 +29,9 @@ export async function checkAuthStatus(host: string, cwd: string, includeTokenMet
   const parsed = parseAuthStatus(host, raw)
   const state: AuthState =
     result.exitCode === 0
-      ? parsed.state === 'not-authenticated'
-        ? 'not-authenticated'
-        : 'ok'
+      ? parsed.state === 'ok'
+        ? 'ok'
+        : parsed.state
       : parsed.state === 'ok'
         ? 'error'
         : parsed.state
