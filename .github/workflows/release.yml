@@ -41,7 +41,7 @@ jobs:
 
       - id: intent
         name: Intent Release
-        uses: goeselt/intent@10ce9d916bb1af60c48ff1bc03a99348aede7f1a # v1.1.4
+        uses: goeselt/intent@0ab5bbaa2e12d54e405da9e9664ac3328f2c274a # v1.2.3
         with:
           initial-version: '1.0.0'
 
@@ -84,13 +84,13 @@ jobs:
 
       - name: Attest Build Provenance
         if: steps.intent.outputs.release-needed == 'true'
-        uses: actions/attest-build-provenance@a2bbfa25375fe432b6a289bc6b6cd05ecd0c4c32 # v4.1.0
+        uses: actions/attest-build-provenance@0f67c3f4856b2e3261c31976d6725780e5e4c373 # v4.1.1
         with:
           subject-path: ${{ steps.pkg.outputs.vsix }}
 
       - name: Commit Version Bump
         if: steps.intent.outputs.release-needed == 'true'
-        uses: goeselt/scribe@4628c4f2ebb92e31e989b220b1a82ba5132d0a3f # v1.2.1
+        uses: goeselt/scribe@2d727b24c709116d2951b61d0091ed20bf777b72 # v1.2.3
         with:
           files: |
             package.json
@@ -102,7 +102,7 @@ jobs:
 
       - name: Release
         if: steps.intent.outputs.release-needed == 'true'
-        uses: goeselt/dispatch@537bfa0724a8de8b2a8e282458944a9cf368f740 # v1.2.3
+        uses: goeselt/dispatch@72482f5dee11ae6ad32d44b9d926c6d1708dea98 # v1.3.6
         with:
           release-tag: ${{ steps.intent.outputs.release-tag }}
           major-tag: ${{ steps.intent.outputs.major-tag }}

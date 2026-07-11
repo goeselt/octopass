@@ -26,7 +26,7 @@ jobs:
       pull-requests: write
     steps:
       - name: Validate Intent
-        uses: goeselt/intent@10ce9d916bb1af60c48ff1bc03a99348aede7f1a # v1.1.4
+        uses: goeselt/intent@0ab5bbaa2e12d54e405da9e9664ac3328f2c274a # v1.2.3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -59,6 +59,6 @@ jobs:
         run: npm run build
 
       - name: Pedant
-        uses: goeselt/pedant@b8e404a982679f74a8cd9309de5d2492bc8030c3 # v1.2.3
+        uses: goeselt/pedant@191b4534d6be8e687f79f147ffafc5e86a2c108b # v1.4.2
         with:
           ignore: out/
